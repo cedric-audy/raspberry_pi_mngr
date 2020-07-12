@@ -1,0 +1,3 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !public_html/
+RewriteRule ^(.*) public_html/$1 [L]

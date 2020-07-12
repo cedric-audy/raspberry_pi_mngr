@@ -1,0 +1,323 @@
+/* ==================================== */
+/* General variables                    */
+/* ------------------------------------ */
+@import url(https://fonts.googleapis.com/css?family=Dosis);
+
+@backgroundColor : white;
+@backgroundImage : url('/images/brickwall.png'); /* or none */
+@fontFamily : 'Dosis', sans-serif;
+@textColor : #444;
+@headingColor : darken(@textColor, 20%);
+@pageWidth : 1000px;
+@pageMargin : 30px;
+
+@bandTextColor : white;
+@bandTextSize : 1.5em;
+@bandPaddingTop : 20px;
+@bandPaddingBottom : 20px;
+@bandBackgroundColor : #a00000;
+@bandBackgroundColorHover : #600000;
+@bandTextShadow : 2px 2px 0 rgba(0, 0, 0, 0.3);
+
+@boxStyle : 0px solid black;
+@boxRadius : 3px;
+@boxShadow : 0px 0px 3px #555;
+
+@tileMargin : 16px;
+@tileSize : 150px;
+@tileColor : white;
+@tileBackgroundColor1 : #115500;
+@tileBackgroundColor2 : #555;
+@tileBackgroundColor3 : #0000ff;
+@tileBackgroundColor4 : #ff3c00;
+@tileBackgroundColorHover : #aaa;
+
+/* ==================================== */
+/* Base classes and styles              */
+/* ------------------------------------ */
+* {
+	margin:0;
+	padding:0;
+}
+
+.clear {
+	clear:both;
+}
+
+a {
+	text-decoration: none;
+}
+
+button {
+  background-color: @bandBackgroundColor;
+  border-radius: @boxRadius * 2;
+  color: @bandTextColor;
+  font-size: 0.8em;
+  padding: 8px 15px 8px 15px;
+  border:0px solid;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: @bandBackgroundColorHover;
+}
+
+input[type=text],
+input[type=password] {
+	padding:5px; 
+	border:2px solid #ccc; 
+	border-radius: 5px;
+	width:200px;
+	color:#555;
+}
+
+input[type=text]:focus,
+input[type=password]:focus {
+	border-color:rgba(40,40,40,0.4); 
+}
+
+#lean_overlay {
+	.box;
+    position: fixed;
+    z-index:100;
+    top: 20%;
+    left: 50%;
+    margin-left: -215px;
+    width:430px;
+    background: rgba(40,40,40,0.4);
+    display: none;
+}
+
+#lean_overlay h2 {
+	background-color: @bandBackgroundColor;
+	border-radius: @boxRadius;
+	color: @bandTextColor;
+	padding:15px;
+}
+
+#lean_overlay .padded{
+	padding:15px;
+}
+
+#lean_overlay .close-overlay {
+	float: right;
+	margin: 15px;
+	margin-top: 5px;
+	color: @bandTextColor;
+}
+
+#lean_overlay .overlay-container {
+	background-color: @backgroundColor;
+	color: @textColor;
+	margin:5px;
+    min-height:100px;
+	border-radius: @boxRadius;
+	font-size: 1.5em;
+}
+
+.message {
+	border: 1px solid;
+	margin: 10px 0px;
+	padding:15px 10px 15px 50px;
+	background-repeat: no-repeat;
+	background-position: 10px center;
+}
+.info-message {
+	.message;
+	color: #00529B;
+	background-color: #BDE5F8;
+	background-image: url('/images/icons/Knob Info.png');
+}
+.success-message {
+	.message;
+	color: #4F8A10;
+	background-color: #DFF2BF;
+	background-image:url('/images/icons/Knob Valid Green.png');
+}
+.warning-message {
+	.message;
+	color: #9F6000;
+	background-color: #FEEFB3;
+	background-image: url('/images/icons/Knob Attention.png');
+}
+.error-message {
+	.message;
+	color: #D8000C;
+	background-color: #FFBABA;
+	background-image: url('/images/icons/Knob Cancel.png');
+}
+
+.form-label {
+	float:left;
+	width:160px;
+}
+
+.form-input {
+	float:left;
+	width:230px;
+}
+
+.form-separator {
+	clear:both;
+	height:10px;
+}
+
+/* ==================================== */
+/* Theme styles                         */
+/* ------------------------------------ */
+
+html {
+	color:@textColor;
+	height:100%;
+	background-color: @bandBackgroundColor;
+	background-repeat: no-repeat;
+	font-family: @fontFamily;
+}
+
+
+h1 {
+	color: @headingColor;
+	margin-bottom: 10px;
+}
+
+h2 {
+	color:darken(@headingColor, 10%);
+}
+
+h3,h4 {
+	color:darken(@headingColor, 20%);
+}
+
+h5 {
+	font-size: 1.2em;
+}
+
+.fixed-width {
+	width: @pageWidth;
+	margin:0px auto;
+}
+
+.box {
+	border:@boxStyle;
+	box-shadow:@boxShadow;
+	border-radius:@boxRadius;
+}
+
+.page-index {
+	p {
+		font-size: 1.2em;
+	}
+
+	div.signin {
+		margin-top: 50px;
+		font-size: 1.5em;
+		text-align: right;
+		padding-right: 30px;
+	}
+}
+
+header, footer {
+	a {
+		color: @bandTextColor;
+	}
+
+	a:hover {
+		color: darken(@bandTextColor, 25%);
+	}
+
+	nav {
+		float:right;
+	}
+
+	nav ul li {
+		font-size: 0.9em;
+		float:left;
+		list-style-type: none;
+		list-style-position: inside;
+		border-right: 1px solid white;
+		padding: 0 10px;
+	}
+}
+
+.band {
+	.fixed-width;
+	text-shadow: @bandTextShadow;
+	color:@bandTextColor;
+	padding-top: @bandPaddingTop;
+	padding-bottom: @bandPaddingBottom;
+	font-size: @bandTextSize;
+}
+
+.footer {
+	font-size: 0.95em;
+}
+
+.main-section {
+    background-image: @backgroundImage;
+	padding:10px;
+}
+
+.container {
+	.fixed-width;
+	.box;
+	background-color: @backgroundColor;
+	margin-top:@pageMargin;
+	margin-bottom:@pageMargin;
+	min-height: 500px;
+	padding:10px;
+}
+
+.container {
+
+	ul li {
+		.box;
+		float:left;
+		list-style-type: none;
+		margin-right: @tileMargin;
+		margin-bottom: @tileMargin;
+		background-color: @tileBackgroundColor1;
+		width: @tileSize;
+	}
+
+	ul li:nth-child(4n+1) {
+		background-color: @tileBackgroundColor2;
+	}
+
+	ul li:nth-child(4n+2) {
+		background-color: @tileBackgroundColor3;
+	}
+
+	ul li:nth-child(4n+3) {
+		background-color: @tileBackgroundColor4;
+	}
+
+	ul li:last-child {
+		clear:both;
+		float:none;
+	}
+
+	ul li a {
+		display: block;
+		line-height: @tileSize/1.2;
+		padding-top: 0;
+		padding-bottom: 0;
+		text-align: center;
+		color : @tileColor;
+	}
+
+	ul li a img {
+		position: relative;
+		top:15px;
+	}
+
+	ul li a:hover {
+		background-color: @tileBackgroundColorHover;
+	}
+}
+
+
+.page-about {
+	.info {
+		margin-top:50px;
+	}
+}

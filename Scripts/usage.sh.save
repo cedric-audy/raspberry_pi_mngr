@@ -1,0 +1,8 @@
+#!/bin/bash 
+SpaceUsage=`du -sh /var/www/html/ | grep -o ".*K"`
+TotalSpaceUsage=`df -ah --total | tail | grep -o [^total]".*G" | cut -b 18-21`
+TotalRam=`free -k | grep "Mem:" | cut -b 13-19`
+FreeRam=`free -k | grep "Mem:" | cut -b 37-43`
+echo "Le disque dur utilisé par les répertoires usagers est : $SpaceUsage <br/>"
+echo "Le disque dur utilisé est de $TotalSpaceUsage"
+echo "La mémoire vive totale est de : $TotalRam kB (libre : $FreeRam kB)"
